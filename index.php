@@ -31,6 +31,10 @@
 
     <div class="text-center header-box mb-5">
         <h1 class="fw-bold">Menu Utama Data Kampus</h1>
+        <p>
+            Nama: Siti Romlah<br>
+            NIM: 202404027<br>
+        </p>
         <p class="text-muted">Silahkan pilih data yang ingin dilihat</p>
     </div>
 
