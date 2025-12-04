@@ -1,5 +1,5 @@
 <?php
-include 'koneksi .php';
+include 'koneksi.php';
 
 $sql = 'SELECT * FROM tbl_mahasiswa ORDER BY nim ASC';
 $query = mysqli_query($conn, $sql);

@@ -1,5 +1,5 @@
 <?php
-include 'koneksi .php';
+include 'koneksi.php';
 
 $sql = 'SELECT * FROM tbl_nilai';
 $query = mysqli_query($conn, $sql);
