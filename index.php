@@ -42,7 +42,7 @@
 
         <!-- Card Dosen -->
         <div class="col-md-3 mb-4">
-            <div onclick="location.href='dosen.php'" class="card menu-card text-center p-4">
+            <div onclick="location.href='dosen/dosen.php'" class="card menu-card text-center p-4">
                 <img src="https://cdn-icons-png.flaticon.com/128/3135/3135755.png" width="70" class="mx-auto mb-3">
                 <h5 class="fw-bold">Data Dosen</h5>
                 <p class="text-muted">Lihat semua data dosen</p>
@@ -51,7 +51,7 @@
 
         <!-- Card Mahasiswa -->
         <div class="col-md-3 mb-4">
-            <div onclick="location.href='mahasiswa.php'" class="card menu-card text-center p-4">
+            <div onclick="location.href='mahasiswa/mahasiswa.php'" class="card menu-card text-center p-4">
                 <img src="https://cdn-icons-png.flaticon.com/128/3135/3135810.png" width="70" class="mx-auto mb-3">
                 <h5 class="fw-bold">Data Mahasiswa</h5>
                 <p class="text-muted">Lihat semua data mahasiswa</p>
@@ -60,7 +60,7 @@
 
         <!-- Card Mata Kuliah -->
         <div class="col-md-3 mb-4">
-            <div onclick="location.href='matkul.php'" class="card menu-card text-center p-4">
+            <div onclick="location.href='mataKuliah/matkul.php'" class="card menu-card text-center p-4">
                 <img src="https://cdn-icons-png.flaticon.com/128/2995/2995620.png" width="70" class="mx-auto mb-3">
                 <h5 class="fw-bold">Data Mata Kuliah</h5>
                 <p class="text-muted">Lihat daftar mata kuliah</p>
@@ -69,7 +69,7 @@
 
         <!-- Card Nilai -->
         <div class="col-md-3 mb-4">
-            <div onclick="location.href='nilai.php'" class="card menu-card text-center p-4">
+            <div onclick="location.href='nilai/nilai.php'" class="card menu-card text-center p-4">
                 <img src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" width="70" class="mx-auto mb-3">
                 <h5 class="fw-bold">Data Nilai</h5>
                 <p class="text-muted">Lihat nilai mahasiswa</p>
