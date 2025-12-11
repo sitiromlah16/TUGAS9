@@ -17,19 +17,31 @@ if (!$query) {
 
     <style>
         body {
-            background: #f0f7ff;
+            background: #eaf2ff;
         }
         .card-custom {
-            border-radius: 15px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            border-radius: 18px;
+            box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+            background: white;
         }
         .table thead {
             background: #0d6efd;
             color: white;
         }
+        .btn-custom-add {
+            border-radius: 30px;
+            padding: 8px 20px;
+            background: #198754;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .btn-custom-add:hover {
+            background: #157347;
+        }
         .btn-back {
             border-radius: 30px;
-            padding: 6px 20px;
+            padding: 8px 20px;
         }
     </style>
 </head>
@@ -41,10 +53,12 @@ if (!$query) {
     <div class="card card-custom p-4">
         <h2 class="text-center fw-bold mb-4">Data Mata Kuliah</h2>
 
-        <a href="../index.php" class="btn btn-secondary mb-3 btn-back">Kembali ke Menu</a>
-        <a href="tambah_matkul.php">+tambah matkul</a>
+        <div class="d-flex justify-content-between mb-3">
+            <a href="../index.php" class="btn btn-secondary btn-back">Kembali</a>
+            <a href="tambah_matkul.php" class="btn-custom-add">+ Tambah Mata Kuliah</a>
+        </div>
 
-        <table class="table table-bordered table-striped text-center">
+        <table class="table table-bordered table-striped text-center align-middle">
             <thead>
                 <tr>
                     <th>Kode Matkul</th>
@@ -63,9 +77,15 @@ if (!$query) {
                     <td><?= $row['sks'] ?></td>
                     <td><?= $row['nidn'] ?></td>
                     <td>
-                <a href="edit_matkul.php?kodeMatkul=<?= $row['kodeMatkul']; ?>">Ubah</a> |
-                <a href="delete_matkul.php?kodeMatkul=<?= $row['kodeMatkul']; ?>">Hapus</a>
-                 </td>
+                        <a href="edit_matkul.php?kodeMatkul=<?= $row['kodeMatkul']; ?>" class="btn btn-primary btn-sm">
+                            Ubah
+                        </a>
+                        <a href="delete_matkul.php?kodeMatkul=<?= $row['kodeMatkul']; ?>"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Yakin ingin menghapus data ini?')">
+                            Hapus
+                        </a>
+                    </td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>
@@ -78,6 +98,4 @@ if (!$query) {
 </body>
 </html>
 
-<?php
-mysqli_free_result($query);
-?>
+<?php mysqli_free_result($query); ?>

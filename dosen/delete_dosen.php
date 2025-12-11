@@ -13,7 +13,7 @@ $queryDelete = "DELETE FROM tbl_dosen WHERE nidn='$xnidn'";
 $hasil= mysqli_query($conn, $queryDelete);
 
 if($hasil){
-    header('location:../index.php');
+    header('location:dosen.php');
 }else{
     echo "hapus data gagal". mysqli_error($conn);
 }

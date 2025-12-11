@@ -1,71 +1,100 @@
 <?php
+include '../koneksi.php';
 
-//membuka jalur ke database
-include'../koneksi.php';
-
-// ambil data nim sebagai acuan
+// ambil nim untuk edit
 $xnim = $_GET['nim'];
-// var_dump($xnim);
-// die;
-// panggil data yang akan diubah berdasarkan nim
-$data= mysqli_query($conn, "SELECT * FROM tbl_mahasiswa WHERE nim='$xnim'");
-// var_dump($data);
-// die;
-//pindahkan data ke variabel baru
+$data = mysqli_query($conn, "SELECT * FROM tbl_mahasiswa WHERE nim='$xnim'");
 $mhs = mysqli_fetch_array($data);
 ?>
 
-<html>
-    <head>
-        <title>Form Edit</title>
-    </head>
-    <body>
-        <h3>Edit data mahasiswa</h3>
-        <form action="proses_editMahasiswa.php" method="post">
-        <table>
-            <tr>
-                <td>NIM</td>
-                <td><input type="text" name="nim" value="<?php echo $mhs['nim']; ?>" readonly></td>
-            </tr>
-             <tr>
-                <td>Nama</td>
-                <td><input type="text" name="nama" value="<?php echo $mhs['nama']; ?>"></td>
-            </tr>
-             <tr>
-                <td>Prodi</td>
-                <td><select name="prodi" id="">
-                    <option value="">--pilih prodi--</option>
-            <option value="TL" <?php echo ($mhs['prodi'] == 'TL') ? 'selected' : ''; ?>>TL</option>
-            <option value="TRPL" <?php echo ($mhs['prodi'] == 'TRPL') ? 'selected' : ''; ?>>TRPL</option>
-            <option value="TRM" <?php echo ($mhs['prodi'] == 'TRM') ? 'selected' : ''; ?>>TRM</option>
-            <option value="TRMK" <?php echo ($mhs['prodi'] == 'TRMK') ? 'selected' : ''; ?>>TRMK</option>
-            </select>
-            </td>
-            <tr>
-                <td>Angkatan</td>
-                <td><select name="angkatan" id="">
-                    <option value="2018" <?php echo ($mhs['angkatan'] == '2018') ? 'selected' : ''; ?>>2018</option>  
-                    <option value="2019" <?php echo ($mhs['angkatan'] == '2019') ? 'selected' : ''; ?>>2019</option>
-                    <option value="2020" <?php echo ($mhs['angkatan'] == '2020') ? 'selected' : ''; ?>>2020</option>
-                    <option value="2021" <?php echo ($mhs['angkatan'] == '2021') ? 'selected' : ''; ?>>2021</option>
-                    <option value="2022" <?php echo ($mhs['angkatan'] == '2022') ? 'selected' : ''; ?>>2022</option>
-                    <option value="2023" <?php echo ($mhs['angkatan'] == '2023') ? 'selected' : ''; ?>>2023</option>
-                    <option value="2024" <?php echo ($mhs['angkatan'] == '2024') ? 'selected' : ''; ?>>2024</option>
-                    <option value=""></option>2025" <?php echo ($mhs['angkatan'] == '2025') ? 'selected' : ''; ?>>2025</option>
-            </select>
-            </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Data Mahasiswa</title>
 
-            </tr>
-                <tr>
-                <td>Email</td>
-                <td><input type="text" name="email" value="<?php echo $mhs['email']; ?>"></td>
-            
-            </tr>
-            <tr>
-                <td><input type="submit" value="Update"></td>
-            </tr>
-            
-        </table>
-        </form>
-    </body>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: #f0f6ff;
+        }
+        .card-custom {
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body class="p-4">
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card card-custom p-4">
+                <h3 class="text-center mb-4 fw-bold">Edit Data Mahasiswa</h3>
+
+                <form action="proses_editMahasiswa.php" method="post">
+
+                    <!-- NIM (read-only) -->
+                    <div class="mb-3">
+                        <label class="form-label">NIM</label>
+                        <input type="text" name="nim" class="form-control" value="<?= $mhs['nim']; ?>" readonly>
+                    </div>
+
+                    <!-- Nama -->
+                    <div class="mb-3">
+                        <label class="form-label">Nama</label>
+                        <input type="text" name="nama" class="form-control" value="<?= $mhs['nama']; ?>" required>
+                    </div>
+
+                    <!-- Prodi -->
+                    <div class="mb-3">
+                        <label class="form-label">Prodi</label>
+                        <select name="prodi" class="form-select" required>
+                            <option value="">-- Pilih Prodi --</option>
+                            <option value="TL"   <?= ($mhs['prodi']=='TL') ? 'selected' : ''; ?>>TL</option>
+                            <option value="TRPL" <?= ($mhs['prodi']=='TRPL') ? 'selected' : ''; ?>>TRPL</option>
+                            <option value="TRM"  <?= ($mhs['prodi']=='TRM') ? 'selected' : ''; ?>>TRM</option>
+                            <option value="TRMK" <?= ($mhs['prodi']=='TRMK') ? 'selected' : ''; ?>>TRMK</option>
+                        </select>
+                    </div>
+
+                    <!-- Angkatan -->
+                    <div class="mb-3">
+                        <label class="form-label">Angkatan</label>
+                        <select name="angkatan" class="form-select" required>
+                            <option value="">-- Pilih Angkatan --</option>
+                            <?php 
+                            $angkatanList = [2018,2019,2020,2021,2022,2023,2024,2025];
+                            foreach ($angkatanList as $th) {
+                                $sel = ($mhs['angkatan'] == $th) ? "selected" : "";
+                                echo "<option value='$th' $sel>$th</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" value="<?= $mhs['email']; ?>" required>
+                    </div>
+
+                    <!-- Tombol -->
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="mahasiswa.php" class="btn btn-secondary">Kembali</a>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
 </html>

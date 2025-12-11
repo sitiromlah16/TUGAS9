@@ -3,14 +3,14 @@
 include'../koneksi.php';
 
 //menampung nilai dari inputan $_POST
-$vnim = $_POST['nidn'];
+$vnidn = $_POST['nidn'];
 $vnama = $_POST['nama'];
 $vprodi = $_POST['prodi'];
 $vemail= $_POST['email'];
 
 // sintak query untuk insert data ke tabel
-$querySimpan = "INSERT INTO tbl_dosen (nidn, nama, prodi, email)
-VALUES ('$vnim', '$vnama', '$vprodi', '$vemail')";
+$querySimpan = "INSERT INTO tbl_dosen(nidn, nama, prodi, email)
+VALUES ('$vnidn', '$vnama', '$vprodi', '$vemail')";
 
 //eksekusi query
 mysqli_query($conn, $querySimpan);

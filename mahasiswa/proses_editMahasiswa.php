@@ -10,5 +10,5 @@ $vemail= $_POST['email'];
 $queryUpdate = "UPDATE tbl_mahasiswa SET nama='$vnama', prodi='$vprodi', email='$vemail' WHERE nim='$vnim'";
 
 mysqli_query($conn, $queryUpdate);  
-header('location:../index.php');
+header('location:mahasiswa.php');
 ?>
