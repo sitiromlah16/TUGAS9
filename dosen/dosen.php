@@ -1,4 +1,5 @@
 <?php
+include '../blok.php';
 include '../koneksi.php';
 $sql = 'SELECT * FROM tbl_dosen ORDER BY nidn ASC';
 $query = mysqli_query($conn, $sql);

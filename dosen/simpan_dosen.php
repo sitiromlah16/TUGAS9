@@ -1,4 +1,5 @@
 <?php
+include '../blok.php';
 //membuka jalur ke database
 include'../koneksi.php';
 

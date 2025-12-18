@@ -1,5 +1,9 @@
 <?php
-
+include '../blok.php';  
+if ($_SESSION['role'] == 'mhs') {
+    header("location: mahasiswa.php");
+    exit();
+}
 //buka jalur ke database
 include '../koneksi.php';
 

@@ -1,5 +1,10 @@
 <?php
 include '../koneksi.php';
+include '../blok.php';  
+if ($_SESSION['role'] == 'mhs') {
+    header("location: mahasiswa.php");
+    exit();
+}
 
 // ambil nim untuk edit
 $xnim = $_GET['nim'];

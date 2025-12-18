@@ -1,7 +1,11 @@
 <?php
 // Koneksi database
 include '../koneksi.php';
-
+include '../blok.php';  
+if ($_SESSION['role'] == 'mhs') {
+    header("location: dosen.php");
+    exit();
+}
 // Ambil NIDN dari parameter GET
 $xnidn = $_GET['nidn'];
 

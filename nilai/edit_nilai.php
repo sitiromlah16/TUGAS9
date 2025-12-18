@@ -1,5 +1,10 @@
 <?php
 include '../koneksi.php';
+include '../blok.php';  
+if ($_SESSION['role'] == 'mhs') {
+    header("location: nilai.php");
+    exit();
+}
 
 // ambil id_nilai
 $xidnilai = $_GET['id_nilai'];
@@ -60,7 +65,7 @@ $mhs = mysqli_fetch_array($data);
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Nilai Huruf</label>
+                 <label class="form-label">Nilai Huruf</label>
                 <input type="text" name="nilaiHuruf" class="form-control" value="<?= $mhs['nilaiHuruf']; ?>">
             </div>
 

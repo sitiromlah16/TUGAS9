@@ -1,5 +1,10 @@
 <?php
 include '../koneksi.php';
+include '../blok.php';  
+if ($_SESSION['role'] == 'mhs') {
+    header("location: matkul.php");
+    exit();
+}
 
 // ambil kode matkul
 $xnkodeMatkul = $_GET['kodeMatkul'];

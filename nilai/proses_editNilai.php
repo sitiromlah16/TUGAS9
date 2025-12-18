@@ -1,5 +1,5 @@
 <?php
-include'../koneksi.php';
+include '../koneksi.php';
 
 $vidnilai = $_POST['id_nilai'];
 $vnilai = $_POST['nilai'];

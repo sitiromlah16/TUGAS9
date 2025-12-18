@@ -1,7 +1,13 @@
 <?php
 
 //buka jalur ke database
+include '../blok.php';  
+if ($_SESSION['role'] == 'mhs') {
+    header("location: nilai.php");
+    exit();
+}
 include '../koneksi.php';
+
 
 //periksa isi data variabel dari metode GET
 if(isset($_GET['id_nilai'])) {

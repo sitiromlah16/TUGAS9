@@ -1,4 +1,11 @@
 <?php
+include '../blok.php';
+if ($_SESSION['role'] == 'mhs') {
+    header("location: matkul.php");
+    exit();
+}
+?>
+<?php
 include '../koneksi.php';
 
 $query = "SELECT tbl_dosen.nidn, tbl_dosen.nama FROM tbl_dosen";

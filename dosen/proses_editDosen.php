@@ -1,4 +1,5 @@
 <?php
+include '../blok.php';
 include'../koneksi.php';
 
 $vnim = $_POST['nidn'];

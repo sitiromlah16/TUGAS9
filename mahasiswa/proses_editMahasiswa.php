@@ -1,5 +1,5 @@
 <?php
-include'../koneksi.php';
+include '../koneksi.php';
 
 $vnim = $_POST['nim'];
 $vnama = $_POST['nama'];

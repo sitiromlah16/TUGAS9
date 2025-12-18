@@ -1,3 +1,10 @@
+<?php
+include '../blok.php';
+if ($_SESSION['role'] == 'mhs') {
+    header("location: mahasiswa.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

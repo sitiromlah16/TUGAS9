@@ -1,3 +1,7 @@
+<?php
+include 'blok.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,10 +35,10 @@
 
     <div class="text-center header-box mb-5">
         <h1 class="fw-bold">Menu Utama Data Kampus</h1>
-        <p>
+        <p><strong>
             Nama: Siti Romlah<br>
             NIM: 202404027<br>
-        </p>
+        </strong></p>
         <p class="text-muted">Silahkan pilih data yang ingin dilihat</p>
     </div>
 
@@ -73,6 +77,12 @@
                 <img src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" width="70" class="mx-auto mb-3">
                 <h5 class="fw-bold">Data Nilai</h5>
                 <p class="text-muted">Lihat nilai mahasiswa</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div onclick="location.href='logout.php'" class="card menu-card text-center p-4">
+                <h5 class="fw-bold">Logout</h5>
+                <p class="text-muted">Keluar dari sistem</p>
             </div>
         </div>
 

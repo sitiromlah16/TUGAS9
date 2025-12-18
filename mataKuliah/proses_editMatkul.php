@@ -1,5 +1,6 @@
 <?php
-include'../koneksi.php';
+
+include '../koneksi.php';
 
 $vkodeMatkul = $_POST['kodeMatkul'];
 $vnamaMatkul = $_POST['namaMatkul'];

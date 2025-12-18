@@ -1,5 +1,11 @@
 <?php
 include '../koneksi.php';
+include '../blok.php';
+if ($_SESSION['role'] == 'mhs') {
+    header("location: nilai.php");
+    exit();
+}
+
 
 $queryDosen = "SELECT nidn, nama FROM tbl_dosen";
 $resultDosen = mysqli_query($conn, $queryDosen);
