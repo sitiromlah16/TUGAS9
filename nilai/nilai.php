@@ -55,6 +55,8 @@ if (!$query) {
     <div class="card card-custom">
 
         <h2 class="text-center fw-bold mb-4">Data Nilai Mahasiswa</h2>
+        <p>user ini : <?= $_SESSION['login_user'] ?></p>
+        <P>role ini : <?= $_SESSION['role'] ?></P>
 
         <div class="d-flex justify-content-between mb-3">
             <a href="../index.php" class="btn btn-secondary btn-back">Kembali</a>
