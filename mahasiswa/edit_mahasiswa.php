@@ -41,7 +41,7 @@ $mhs = mysqli_fetch_array($data);
             <div class="card card-custom p-4">
                 <h3 class="text-center mb-4 fw-bold">Edit Data Mahasiswa</h3>
 
-                <form action="proses_editMahasiswa.php" method="post">
+                <form action="proses_editMahasiswa.php" method="post" enctype="multipart/form-data">
 
                     <!-- NIM (read-only) -->
                     <div class="mb-3">
@@ -86,6 +86,10 @@ $mhs = mysqli_fetch_array($data);
                     <div class="mb-3">
                         <label class="form-label">Email</label>
                         <input type="email" name="email" class="form-control" value="<?= $mhs['email']; ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">foto</label>
+                        <input type="file" name="fileFoto" class="form-control" value="<?= $mhs['foto']; ?>" required>
                     </div>
 
                     <!-- Tombol -->

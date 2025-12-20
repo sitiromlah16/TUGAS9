@@ -55,6 +55,7 @@ if (!$query) {
         <table class="table table-bordered table-striped text-center align-middle">
             <thead>
                 <tr>
+                    <th>Foto</th>
                     <th>NIM</th>
                     <th>Nama</th>
                     <th>Prodi</th>
@@ -66,11 +67,13 @@ if (!$query) {
             <tbody>
                 <?php while ($row = mysqli_fetch_array($query)) : ?>
                 <tr>
+                    <td><img src="<?= $row['foto'] ?>" alt="Foto" width="100"></td>
                     <td><?= $row['nim'] ?></td>
                     <td><?= $row['nama'] ?></td>
                     <td><?= $row['prodi'] ?></td>
                     <td><?= $row['angkatan'] ?></td>
                     <td><?= $row['email'] ?></td>
+
 
                     <td class="action-buttons">
                         <a href="edit_mahasiswa.php?nim=<?= $row['nim']; ?>" 
